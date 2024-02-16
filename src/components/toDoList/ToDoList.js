@@ -7,7 +7,8 @@ const ToDoList = ({tasks, handleDelete}) => {
     console.log(tasks);
     return (
         <ul className={classes.list}>
-            {tasks.map(todo=> <ToDo key={todo.id} task={todo} handleDelete={handleDelete}/> )}
+            {tasks.map(todo=> <ToDo key={todo.id} task={todo}
+             handleDelete={() => handleDelete(todo.id)}/> )}
         </ul>
     );
 };

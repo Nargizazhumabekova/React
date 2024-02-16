@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import NewComponent from './components/newComponent/NewComponent';
 import Modal from './components/modal/Modal';
 import React, { useState } from 'react';
-import CountPage from './page/countPage/CountPage';
+//import CountPage from './page/countPage/CountPage';
 import Input from './components/input/Input';
 import InputShow from './components/inputShow/InputShow';
 import ToDoList from './components/toDoList/ToDoList';
@@ -60,8 +60,9 @@ function App() {
     };
 
     const handleDelete = (id) => {
-        console.log(id);
-    }
+    const updatedTodos = tasks.filter((todo) => todo.id !== id);
+    setTasks(updatedTodos);
+  };
 
     const a= [1,2,3]
     const b = [4,5,6]
@@ -105,3 +106,4 @@ export default App;
 // }
 //
 // user.name
+
