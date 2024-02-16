@@ -18,7 +18,9 @@ function App() {
     const [ show, setShow ] = useState(false);
 
     const [ input, setInput ] = useState('');
+    const [searchInput,SetSearchInput]=useState('');
     console.log(input, '+++++++++++++++++++++++++++++++');
+
 
 
     const onChangeInput = (event) => {
@@ -63,6 +65,13 @@ function App() {
     const updatedTodos = tasks.filter((todo) => todo.id !== id);
     setTasks(updatedTodos);
   };
+    const handleSearch = (event) => {
+        SetSearchInput(event.target.value);
+    const filtered = tasks.filter((task) =>
+        task.title.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setTasks(filtered);
+};
 
     const a= [1,2,3]
     const b = [4,5,6]
@@ -81,6 +90,7 @@ function App() {
                 </Modal>
             }
             <button onClick={handleShow}>открыть</button>
+            <Input placeholder={'поиск'} type={'search'} onChangeInput={handleSearch}></Input>
             {/*<div className='wrapper'></div>*/}
 
             {/*<CountPage/>*/}
